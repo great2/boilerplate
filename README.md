@@ -67,56 +67,193 @@ includesloader({
 
 > Uptions
 
-| key         | filesRootPath          |
-| ----------- | ---------------------- |
-| type        | String                 |
-| default     | "./includes/"          |
-| description | 所有載入檔案之預設目錄 |
+<table>
+  <thead>
+    <tr>
+      <th colspan="2" style="text-align: center">filesRootPath</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Type</td>
+      <td>String</td>
+    </tr>
+    <tr>
+      <td>Default</td>
+      <td>"./includes/"</td>
+    </tr>
+    <tr>
+      <td>Description</td>
+      <td>所有載入檔案之預設目錄</td>
+    </tr>
+  </tbody>
+</table>
 
-| key         | filesExtension           |
-| ----------- | ------------------------ |
-| type        | String                   |
-| default     | ".html"                  |
-| description | 所有載入檔案之預設附檔名 |
-
-| key         | callback                   |
-| ----------- | -------------------------- |
-| type        | Function                   |
-| default     | undefined                  |
-| description | 將於全部檔案下載完畢後執行 |
-
-| key         | includesList   |
-| ----------- | -------------- |
-| type        | Array          |
-| default     | undefined      |
-| description | 下載檔案之清單 |
-
-| key         | includesList:[{target}] |
-| ----------- | ----------------------- |
-| type        | String                  |
-| default     | undefined               |
-| description | 該檔案匯入之目標 DOM    |
-
-| key         | includesList:[{rootPath}] |
-| ----------- | ------------------------- |
-| type        | String                    |
-| default     | filesRootPath             |
-| description | 該檔案目錄                |
-
-| key         | includesList:[{fileName}] |
-| ----------- | ------------------------- |
-| type        | String                    |
-| default     | undefined                 |
-| description | 該檔案名稱                |
-
-| key         | includesList:[{extension}] |
-| ----------- | -------------------------- |
-| type        | String                     |
-| default     | filesExtension             |
-| description | 該檔案附檔名               |
-
-| key         | includesList:[{callback}] |
-| ----------- | ------------------------- |
-| type        | Function                  |
-| default     | undefined                 |
-| description | 將於該檔案下載完畢後執行  |
+<table>
+  <thead>
+    <tr>
+      <th colspan="2" style="text-align: center">filesExtension</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Type</td>
+      <td>String</td>
+    </tr>
+    <tr>
+      <td>Default</td>
+      <td>".html"</td>
+    </tr>
+    <tr>
+      <td>Description</td>
+      <td>所有載入檔案之預設附檔名</td>
+    </tr>
+  </tbody>
+</table>
+<table>
+  <thead>
+    <tr>
+      <th colspan="2" style="text-align: center">callback</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Type</td>
+      <td>Function</td>
+    </tr>
+    <tr>
+      <td>Default</td>
+      <td>undefined</td>
+    </tr>
+    <tr>
+      <td>Description</td>
+      <td>將於全部檔案下載完畢後執行</td>
+    </tr>
+  </tbody>
+</table>
+<table>
+  <thead>
+    <tr>
+      <th colspan="2" style="text-align: center">includesList</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Type</td>
+      <td>Array</td>
+    </tr>
+    <tr>
+      <td>Default</td>
+      <td>undefined</td>
+    </tr>
+    <tr>
+      <td>Description</td>
+      <td>下載檔案之清單</td>
+    </tr>
+  </tbody>
+</table>
+<table>
+  <thead>
+    <tr>
+      <th colspan="2" style="text-align: center">includesList:[{target}]</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Type</td>
+      <td>String</td>
+    </tr>
+    <tr>
+      <td>Default</td>
+      <td>undefined</td>
+    </tr>
+    <tr>
+      <td>Description</td>
+      <td>該檔案匯入之目標 DOM</td>
+    </tr>
+  </tbody>
+</table>
+<table>
+  <thead>
+    <tr>
+      <th colspan="2" style="text-align: center">includesList:[{rootPath}]</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Type</td>
+      <td>String</td>
+    </tr>
+    <tr>
+      <td>Default</td>
+      <td>filesRootPath</td>
+    </tr>
+    <tr>
+      <td>Description</td>
+      <td>該檔案目錄</td>
+    </tr>
+  </tbody>
+</table>
+<table>
+  <thead>
+    <tr>
+      <th colspan="2" style="text-align: center">includesList:[{fileName}]</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Type</td>
+      <td>String</td>
+    </tr>
+    <tr>
+      <td>Default</td>
+      <td>undefined</td>
+    </tr>
+    <tr>
+      <td>Description</td>
+      <td>該檔案名稱</td>
+    </tr>
+  </tbody>
+</table>
+<table>
+  <thead>
+    <tr>
+      <th colspan="2" style="text-align: center">includesList:[{extension}]</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Type</td>
+      <td>String</td>
+    </tr>
+    <tr>
+      <td>Default</td>
+      <td>filesExtension</td>
+    </tr>
+    <tr>
+      <td>Description</td>
+      <td>該檔案附檔名</td>
+    </tr>
+  </tbody>
+</table>
+<table>
+  <thead>
+    <tr>
+      <th colspan="2" style="text-align: center">includesList:[{callback}]</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Type</td>
+      <td>Function</td>
+    </tr>
+    <tr>
+      <td>Default</td>
+      <td>undefined</td>
+    </tr>
+    <tr>
+      <td>Description</td>
+      <td>將於該檔案下載完畢後執行</td>
+    </tr>
+  </tbody>
+</table>
