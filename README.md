@@ -68,56 +68,56 @@ includesloader({
 
 > Uptions
 
-| key name    |     filesRootPath      |
-| ----------- | :--------------------: |
-| type        |         String         |
-| default     |     "./includes/"      |
+| key         | filesRootPath          |
+| ----------- | ---------------------- |
+| type        | String                 |
+| default     | "./includes/"          |
 | description | 所有載入檔案之預設目錄 |
 
-| key name    |      filesExtension      |
-| ----------- | :----------------------: |
-| type        |          String          |
-| default     |         ".html"          |
+| key         | filesExtension           |
+| ----------- | ------------------------ |
+| type        | String                   |
+| default     | ".html"                  |
 | description | 所有載入檔案之預設附檔名 |
 
-| key name    |          callback          |
-| ----------- | :------------------------: |
-| type        |          Function          |
-| default     |         undefined          |
+| key         | callback                   |
+| ----------- | -------------------------- |
+| type        | Function                   |
+| default     | undefined                  |
 | description | 將於全部檔案下載完畢後執行 |
 
-| key name    |  includesList  |
-| ----------- | :------------: |
-| type        |     Array      |
-| default     |   undefined    |
+| key         | includesList   |
+| ----------- | -------------- |
+| type        | Array          |
+| default     | undefined      |
 | description | 下載檔案之清單 |
 
-| key name    | includesList:[{target}] |
-| ----------- | :---------------------: |
-| type        |         String          |
-| default     |        undefined        |
-| description |  該檔案匯入之目標 DOM   |
+| key         | includesList:[{target}] |
+| ----------- | ----------------------- |
+| type        | String                  |
+| default     | undefined               |
+| description | 該檔案匯入之目標 DOM    |
 
-| key name    | includesList:[{rootPath}] |
-| ----------- | :-----------------------: |
-| type        |          String           |
-| default     |       filesRootPath       |
-| description |        該檔案目錄         |
+| key         | includesList:[{rootPath}] |
+| ----------- | ------------------------- |
+| type        | String                    |
+| default     | filesRootPath             |
+| description | 該檔案目錄                |
 
-| key name    | includesList:[{fileName}] |
-| ----------- | :-----------------------: |
-| type        |          String           |
-| default     |         undefined         |
-| description |        該檔案名稱         |
+| key         | includesList:[{fileName}] |
+| ----------- | ------------------------- |
+| type        | String                    |
+| default     | undefined                 |
+| description | 該檔案名稱                |
 
-| key name    | includesList:[{extension}] |
-| ----------- | :------------------------: |
-| type        |           String           |
-| default     |       filesExtension       |
-| description |        該檔案附檔名        |
+| key         | includesList:[{extension}] |
+| ----------- | -------------------------- |
+| type        | String                     |
+| default     | filesExtension             |
+| description | 該檔案附檔名               |
 
-| key name    | includesList:[{callback}] |
-| ----------- | :-----------------------: |
-| type        |         Function          |
-| default     |         undefined         |
+| key         | includesList:[{callback}] |
+| ----------- | ------------------------- |
+| type        | Function                  |
+| default     | undefined                 |
 | description | 將於該檔案下載完畢後執行  |
