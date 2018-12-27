@@ -1,6 +1,6 @@
-# Plugin Document
+# Document
 
-## **【Includes Loader】**
+> **【Includes Loader】**
 
 項目名稱: Includes 載入器
 檔案名稱: includesloader.js
@@ -61,7 +61,7 @@ includesloader({
 });
 ```
 
-> Uptions
+`Uptions`
 
 | item        |     filesRootPath      |
 | ----------- | :--------------------: |
