@@ -1,7 +1,5 @@
 # Plugin Document
 
----
-
 ## **【Includes Loader】**
 
 項目名稱: Includes 載入器
