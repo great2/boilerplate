@@ -1,19 +1,24 @@
-# Document
+# GreatOne Boilerplate Document
 
-> **【Includes Loader】**
+![GreatOne Logo](./images/great_logo.jpg)
 
-項目名稱: Includes 載入器
-檔案名稱: includesloader.js
-說明: front-end 初始化時從外部載入組件
+## **【Includes Loader】**
 
-依賴程式: jQuery、imagesloaded.js 以及下方 function
+**檔案名稱:** includesloader.js  
+**說明:** front-end 初始化時從外部載入組件
+
+Dependencies:
+
+1. jQuery
+1. imagesloaded.js
+1. 下方之 function
 
 ```javascript
 function listenImagesLoading(
   target,
-  callback = function() {},
-  progress = function(per, instance) {
-    console.log(per + "% (" + IMG_COUNTER + "/" + instance.images.length + ")");
+  callback = () => {},
+  progress = (per, instance) => {
+    console.log(`${per}% (${IMG_COUNTER}/${instance.images.length})`);
   }
 ) {
   console.log("%cImages Loading Listening...", logInfoStyle);
@@ -61,57 +66,57 @@ includesloader({
 });
 ```
 
-`Uptions`
+> Uptions
 
-| item        |     filesRootPath      |
+| key name    |     filesRootPath      |
 | ----------- | :--------------------: |
 | type        |         String         |
 | default     |     "./includes/"      |
 | description | 所有載入檔案之預設目錄 |
 
-| item        |      filesExtension      |
+| key name    |      filesExtension      |
 | ----------- | :----------------------: |
 | type        |          String          |
 | default     |         ".html"          |
 | description | 所有載入檔案之預設附檔名 |
 
-| item        |          callback          |
+| key name    |          callback          |
 | ----------- | :------------------------: |
 | type        |          Function          |
 | default     |         undefined          |
 | description | 將於全部檔案下載完畢後執行 |
 
-| item        |  includesList  |
+| key name    |  includesList  |
 | ----------- | :------------: |
 | type        |     Array      |
 | default     |   undefined    |
 | description | 下載檔案之清單 |
 
-| item        | includesList:[{target}] |
+| key name    | includesList:[{target}] |
 | ----------- | :---------------------: |
 | type        |         String          |
 | default     |        undefined        |
 | description |  該檔案匯入之目標 DOM   |
 
-| item        | includesList:[{rootPath}] |
+| key name    | includesList:[{rootPath}] |
 | ----------- | :-----------------------: |
 | type        |          String           |
 | default     |       filesRootPath       |
 | description |        該檔案目錄         |
 
-| item        | includesList:[{fileName}] |
+| key name    | includesList:[{fileName}] |
 | ----------- | :-----------------------: |
 | type        |          String           |
 | default     |         undefined         |
 | description |        該檔案名稱         |
 
-| item        | includesList:[{extension}] |
+| key name    | includesList:[{extension}] |
 | ----------- | :------------------------: |
 | type        |           String           |
 | default     |       filesExtension       |
 | description |        該檔案附檔名        |
 
-| item        | includesList:[{callback}] |
+| key name    | includesList:[{callback}] |
 | ----------- | :-----------------------: |
 | type        |         Function          |
 | default     |         undefined         |

@@ -34,7 +34,7 @@ function listenImagesLoading(
   target,
   callback = function() {},
   progress = function(per, instance) {
-    console.log(per + "% (" + IMG_COUNTER + "/" + instance.images.length + ")");
+    console.log(`${per}% (${IMG_COUNTER}/${instance.images.length})`);
   }
 ) {
   console.log("%cImages Loading Listening...", logInfoStyle);
