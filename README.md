@@ -42,11 +42,10 @@ function listenImagesLoading(
 
 ```javascript
 includesloader({
-  filesRootPath: "./includes/",
-  filesExtension: ".html",
+  // filesRootPath、filesExtension 未設定則採用預設值: "./includes/"、".html"
   callback: mainFunc,
   includesList: [
-    { // rootPath、extension 未設定則直接引用 filesRootPath、filesExtension
+    { // rootPath、extension 未設定則直接引用: filesRootPath、filesExtension
       target: ".page-header",
       fileName: "_page-header"
       callback: function() {
