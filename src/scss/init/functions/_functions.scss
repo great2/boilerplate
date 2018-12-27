@@ -1,0 +1,40 @@
+/*==================================================*\
+        Functions
+\*==================================================*/
+
+/*** PX to REM ***/
+/**
+ * example:
+ * .site-header {
+ *     width: size-rem(500);
+ * }
+ */
+ @function size-rem($px) {
+  @return ($px / $rootFz) + rem;
+}
+
+
+
+/*** PX to vw ***/
+/**
+ * example:
+ * .site-header {
+ *     width: size-vw(500);
+ * }
+ */
+@function size-vw($px, $vw: 768) {
+  @return ($px / $vw * 100) + vw;
+}
+
+
+
+/*** Color Opacity ***/
+/**
+ *	example:
+ *	.element {
+ *      @include colorOpacity($colorWhite, 0.25);
+ *	}
+ */
+ @function color-opacity($color, $opacity: $stdOpacity) {
+  @return rgba($color, $opacity);
+}

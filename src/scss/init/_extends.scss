@@ -1,0 +1,154 @@
+/*==================================================*\
+        Extends
+\*==================================================*/
+
+/*==================== Close Btn ====================*/
+/*
+ * 自行設定於 全域(此處) 或 私用(自訂) 需定義：
+ *   1. ._mod_closeBtn { "寬高" }
+ *   2. ._mod_closeBtn:before, 
+ *      ._mod_closeBtn:after { "線條高度"、"線條顏色" }
+ */
+ %mod_close-btn {
+  cursor: pointer;
+  transform: translate(0, 0);
+
+  // White Cross
+  &:before,
+  &:after {
+      @include pseudo();
+      width: 100%;
+      margin: auto;
+      top: 0; bottom: 0;
+  }
+  &:before {
+      transform: rotate(45deg);
+  }
+  &:after {
+      transform: rotate(-45deg);
+  }
+}
+
+/***** Hover: ._mod_closeBtn *****/
+// Close Button Hover-1
+%close-btn-hover-1 {
+  @include mq(tablet) {
+    &:before,
+    &:after {
+        transition: all $duration-std;
+    }
+
+    &:hover {
+        &:before {
+            transform: rotate(135deg);
+        }
+        &:after {
+            transform: rotate(-135deg);
+        }
+    }
+  }
+}
+
+
+
+
+
+/*==================== Hamburger ====================*/
+/*
+* HTML at "/includes/_site_header.html" 中加入:
+* <div class="hamburger">
+*     <div></div>
+*     <div></div>
+*     <div></div>
+* </div>
+*
+* 自行設定於 全域(此處) 或 私用(自訂) 需定義:
+*   1. .hamburger { "寬高" }
+*   2. .hamburger div { "線條高度" }
+*   3. .hamburger div:before,
+*      .hamburger div:after { "線條顏色" }
+*/
+%hamburger {
+  cursor: pointer;
+  
+  &,
+  div {
+      transform: translate(0, 0);
+  }
+
+  div {
+      width: 100%;
+      margin: auto;
+      position: absolute;
+      left: 0;
+
+      &:before,
+      &:after {
+          @include pseudo();
+          width: 100%;
+          height: 100%;
+      }
+
+      // 個別調整
+      &:first-child {
+          top: 0;
+      }
+      &:nth-child(2) {
+          top: 0; bottom: 0;
+      }
+      &:last-child {
+          bottom: 0;
+      }
+  }
+
+  // Show in Pad/Mobile
+  @include mq(tablet) {
+      display: none;
+  }
+
+  /* 可於 _mods.scss 選擇欲 @extend 之 hover樣式 */
+  @extend %hamburger-hover-1;
+}
+
+// Hamburger Hover-1
+%hamburger-hover-1 {
+  @include mq(tablet) {
+      div {
+          transition: all $duration-std;
+
+          &:nth-child(2) {
+              &:before,
+              &:after {
+                  transition: all $duration-std;
+              }
+          }
+      }
+
+      &:hover {
+          div {
+              transition: all $duration-std;
+
+              // 個別調整
+              &:first-child {
+                  top: 125%;
+              }
+              &:nth-child(2) {
+                  &:before {
+                      transform: rotate(135deg);
+                  }
+                  &:after {
+                      transform: rotate(-135deg);
+                  }
+              }
+              &:last-child {
+                  bottom: 125%;
+              }
+
+              &:first-child,
+              &:last-child {
+                  opacity: 0;
+              }
+          }
+      }
+  }
+}

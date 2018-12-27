@@ -1,0 +1,184 @@
+/*==================================================*\
+        Browser Style Reset
+\*==================================================*/
+
+html, body, div, span, applet, object, iframe, h1, h2,
+h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym,
+address, big, cite, code, del, dfn, em, img, ins, kbd,
+q, s, samp, small, strike, strong, sub, sup, tt, var,
+b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form,
+label, legend, table, caption, tbody, tfoot, thead, tr,
+th, td, article, aside, canvas, details, embed, figure,
+figcaption, footer, header, hgroup, nav, output, ruby,
+section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  font-size: inherit;
+  vertical-align: baseline;
+  background-color: transparent;
+}
+
+body { line-height: 1.5; }
+
+ol, ul { list-style: none; }
+
+blockquote, q { quotes: none; }
+
+a, ins { text-decoration: none; }
+
+del { text-decoration: line-through; }
+
+q, blockquote {
+  &:before,
+  &:after {
+    content: none;
+  }
+}
+
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, main, nav, section, 
+summary {
+  display: block;
+}
+
+canvas, audio, video {
+  display: inline-block;
+}
+
+abbr[title] {
+  border-bottom: 1px dotted;
+}
+
+hr {
+  height: 0;
+  box-sizing: content-box;
+}
+
+dfn {
+  font-style: italic;
+}
+
+code, kbd, pre, samp {
+  font: {
+    family: monospace, serif;
+    size: 1em;
+  }
+}
+
+pre {
+  white-space: pre-wrap;
+}
+
+sub {
+  font-size: 12px;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+sup {
+  @extend sub;
+  top: -0.5em;
+}
+
+b, strong { font-weight: bold; }
+
+a {
+  color: inherit;
+  display: block; 
+}
+
+img { 
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  user-select: none; 
+  display: block; 
+}
+
+button,
+select,
+input,
+label,
+textarea {
+  margin: 0;
+  border: 0;
+  border-radius: 0;
+  color: inherit;
+  font: {
+    family: inherit;
+    size: 100%;
+  }
+  line-height: inherit;
+  resize: none;
+  appearance: none;
+  display: block;
+  background-color: transparent;
+}
+
+// 此二 input 皆使用客製化
+input {
+  &[type="checkbox"],
+  &[type="radio"] {
+    @include wh(0);
+    opacity: 0;
+    pointer-events: none;
+    user-select: none;
+    z-index: -1;
+    position: absolute;
+    top: 0; left: 0;
+  }
+
+  &[type="reset"],
+  &[type="submit"] {
+    cursor: pointer;
+  }
+}
+
+button, input { line-height: normal; }
+button, select { text-transform: none; }
+button, select, label { cursor: pointer; }
+
+textarea {
+  overflow: auto;
+  vertical-align: top;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+* {
+  &:focus,
+  &:active,
+  &:hover {
+    outline: 0;
+  }
+  
+  &,
+  &:before,
+  &:after {
+    box-sizing: border-box;
+  }
+
+  &:before,
+  &:after {
+    pointer-events: none;
+  }
+}
+
+// for IE
+select::-ms-expand { display: none; }
+select::-ms-value {
+  color: inherit;
+  background: transparent;
+}
+
+// for FireFox
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}

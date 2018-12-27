@@ -1,0 +1,67 @@
+/*==================================================*\
+        Lightbox
+\*==================================================*/
+
+.lightbox {
+  @include full-popup(rgba(0, 0, 0, 0.78));
+  overflow-y: auto;
+  opacity: 0;
+  z-index: 0;
+
+  svg { 
+    path {
+      fill: #FFFFFF;
+    }
+  }
+}
+
+
+
+.lb-container {
+  max-width: 90%;
+  margin: auto;
+  opacity: 0;
+  z-index: 0;
+  position: absolute;
+  top: 0; bottom: 0;
+  left: 0; right: 0;
+}
+
+// Content Container
+.lb-container {
+  z-index: 1;
+  position: relative;
+}
+
+// Lightbox Content
+.lb-content {
+  background-color: #FFFFFF;
+}
+
+// Button: Close Lightbox
+.lb-close-btn {
+  @extend %mod_close-btn;
+  @include wh(50px);
+  position: absolute;
+  bottom: 100%;
+  right: 0;
+
+  &:before,
+  &:after {
+    height: 4px;
+    border-radius: 100px;
+    background-color: #FFFFFF;
+  }
+
+  /* 可於 _extends.scss 選擇欲 extend 之 hover樣式 */
+  @extend %close-btn-hover-1;
+}
+
+.lb-loading {
+  @include wh(47px);
+  margin: auto;
+  z-index: 0;
+  position: fixed;
+  top: 0; bottom: 0;
+  left: 0; right: 0;
+}

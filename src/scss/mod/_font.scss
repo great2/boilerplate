@@ -1,0 +1,83 @@
+/*==================================================*\
+        Fonts
+\*==================================================*/
+
+/***** Font Tag *****/
+h1,
+.h1 {
+  font-size: 2rem;
+  @include mq(tablet) {
+    font-size: 48px;
+  }
+}
+
+h2,
+.h2 {
+  font-size: 6.875vw;
+  @include mq(tablet) {
+    font-size: 44px;
+  }
+}
+
+h3,
+.h3 {
+  font-size: 6.25vw;
+  @include mq(tablet) {
+    font-size: 40px;
+  }
+}
+
+h4,
+.h4 {
+  font-size: 5.625vw;
+  @include mq(tablet) {
+    font-size: 36px;
+  }
+}
+
+h5,
+.h5 {
+  font-size: 5vw;
+  @include mq(tablet) {
+    font-size: 32px;
+  }
+}
+
+h6,
+.h6 {
+  font-size: 4.6875vw;
+  @include mq(tablet) {
+    font-size: 30px;
+  }
+}
+
+p,
+a,
+li {
+  font-size: 4.375vw;
+  font-weight: normal;
+  @include mq(tablet) {
+    font-size: 28px;
+  }
+}
+
+p {
+  a {
+    color: inherit;
+    font-size: inherit;
+    display: inline;
+  }
+}
+
+span {
+  color: inherit;
+  font-size: inherit;
+}
+
+b {
+  font-weight: bold;
+}
+
+small {
+  font-size: 12px;
+}

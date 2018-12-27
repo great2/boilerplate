@@ -1,0 +1,246 @@
+/*==================================================*\
+        Mixins
+\*==================================================*/
+
+/*** Pseudo Class ***/
+/** 
+ * div:after{
+ *     @include pseudo;
+ *     top: -1rem; left: -1rem;
+ *     width: 1rem; height: 1rem;
+ * }
+ */
+@mixin pseudo($display: block, $pos: absolute, $content: '') {
+    content: $content;
+    display: $display;
+    position: $pos;
+}
+
+
+
+/*** Media Queries (Mobile First) ***/
+/**
+ * .site-header {
+ *     padding: 2rem;
+ *     font-size: 1.8rem;
+ *
+ *     @include mq('tablet-wide') {
+ *         padding-top: 4rem;
+ *         font-size: 2.4rem;
+ *     }
+ * }
+ */
+$breakpoints: (
+  "phone-mini":   320px,
+  "phone":        400px,
+  "phone-wide":   480px,
+  "phablet":      560px,
+  "tablet-small": 640px,
+  "tablet":       768px,
+  "tablet-wide":  1024px,
+  "notebook":      1366px,
+  "desktop": 1680px
+);
+@mixin mq($width, $type: min) {
+  @if map_has_key($breakpoints, $width) {
+    $width: map_get($breakpoints, $width);
+    @if $type == max {
+      $width: $width - 1px;
+    }
+    @media only screen and (#{$type}-width: $width) {
+      @content;
+    }
+  }
+}
+
+
+
+/*** Input Placeholder Style ***/
+/**
+ * input,  
+ * textarea {  
+ *     @include placeholderStyle {
+ *         color: $grey;
+ *     }
+ * }
+ */
+ @mixin placeholder-style {
+  &.placeholder { @content; }
+  &:-moz-placeholder { @content; }
+  &::-moz-placeholder { @content; }
+  &:-ms-input-placeholder { @content; }
+  &::-webkit-input-placeholder { @content; }
+}
+
+
+
+/*** Flexbox Setting ***/
+/**
+ *	example:
+ *	.element {
+ *      @include setFlex(stretch, space-between);
+ *	}
+ */
+ @mixin set-flex($align: center, $justify: center) {
+  display: flex;
+  align-items: $align;
+  justify-content: $justify;
+
+  > * {
+    flex-shrink: 0;
+  }
+}
+
+
+
+/*** Responsive Ratio ***/
+/**
+ * .ifr-wrap{
+ *     @include responsive-ratio(16,9);
+ * }
+ */
+@mixin responsive-ratio($x,$y, $pseudo: false) {
+  $padding: unquote(( $y / $x ) * 100 + '%');
+  @if $pseudo {
+    &:before {
+      @include pseudo($pos: relative);
+      width: 100%;
+      padding-bottom: $padding;
+    }
+  } @else {
+    padding-bottom: $padding;
+  }
+}
+
+
+
+/*** z-index Setting ***/
+/**
+ * example:
+ * .site-header {
+ *     z-index: z("lightbox");
+ * }
+ */
+@function z($name) {
+  @if index($z-indexes, $name) {
+    @return (length($z-indexes) - index($z-indexes, $name)) + 1;
+  } @else {
+    @warn 'There is no item "#{$name}" in this list; choose one of: #{$z-indexes}';
+    @return null;
+  }
+}
+// 越上層、數字越大
+$z-indexes: (
+  "loading",
+  "lightbox"
+);
+
+
+
+/*** Width && Height ***/
+/**
+ *	example:
+ *	.element {
+ *      @include wh(100%);
+ *	}
+ */
+@mixin wh($val) {
+  width: $val;
+  height: $val;
+}
+
+
+
+/*** Full Page Popup ***/
+/**
+ *	example:
+ *	.element {
+ *      @include fullPopup();
+ *	}
+ */
+@mixin full-popup($bg-c) {
+  @include wh(100%);
+  @include set-flex();
+  background-color: $bg-c;
+  position: fixed;
+  top: 0; left: 0;
+}
+
+
+
+/*** Arrow ***/
+/**
+ *  $direction:
+ *    1: ↑
+ *    2: →
+ *    3: ↓
+ *    4: ←
+ *	example:
+ *	.element {
+ *      @include arrow($bdc: #000000);
+ *	}
+ */
+@mixin arrow($w: 8px, $h: null, $bdw: 2px, $bdc: $c-white, $direction: 1) { 
+  @if ($h == null) {
+    $h: $w;
+  }
+
+  width: $w;
+  height: $h;
+  border-width: $bdw $bdw 0 0;
+  border-style: solid;
+  border-color: $bdc;
+  position: relative;
+
+  @if($direction == 1) {
+    transform: rotate(-45deg);
+    top: $h / 3;
+  } @else if($direction == 2) {
+    transform: rotate(45deg);
+  } @else if($direction == 3) {
+    transform: rotate(135deg);
+    bottom: $h / 3;
+  } @else if($direction == 4) {
+    transform: rotate(225deg);
+  } @else {
+    transform: rotate($direction);
+  }
+}
+
+
+
+/*** Triangle ***/
+/**
+ *  $direction:
+ *    1: ↑
+ *    2: →
+ *    3: ↓
+ *    4: ←
+ *	example:
+ *	.element {
+ *      @include artrianglerow($bdc: #000000);
+ *	}
+ */
+@mixin triangle($bdw: 2px, $bdc: $c-white, $direction: top) {
+  @include wh(0);
+  border-width: $bdw;
+  border-style: solid;
+  border-color: transparent;
+  border-#{$direction}-color: $bdc;
+}
+
+
+
+/*** Text Indent ***/
+/**
+ *  有前綴符號或文字，但又需要文字對齊時使用
+ *	example:
+ *	.element {
+ *      @include textIndent(7px);
+ *	}
+ */
+ @mixin text-indent($size) {
+  width: calc(100% - #{$size});
+  text-indent: -$size;
+  transform: translateX($size);
+ }
